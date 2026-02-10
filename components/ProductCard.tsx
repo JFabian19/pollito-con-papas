@@ -16,16 +16,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, onAdd, index }) => {
       <div className="flex h-full flex-col overflow-hidden rounded-xl bg-brand-card">
         {/* Image Container */}
         <div className="relative h-40 w-full overflow-hidden">
-          <div className="flex h-full w-full items-center justify-center bg-white/5">
-            <span className="font-heading text-2xl font-bold italic text-white/20">Imagen acá</span>
+          <div className="flex h-full w-full items-center justify-center bg-gray-100">
+            <span className="font-heading text-2xl font-bold italic text-gray-300">Imagen acá</span>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-card/90 to-transparent opacity-60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-50/50 to-transparent opacity-60"></div>
         </div>
 
         {/* Content */}
         <div className="flex flex-1 flex-col p-4">
           <div className="mb-2 flex items-start justify-between gap-2">
-            <h3 className="font-heading text-lg font-extrabold italic leading-tight text-white">
+            <h3 className="font-heading text-lg font-extrabold italic leading-tight text-gray-900">
               {item.nombre}
             </h3>
             <span className="shrink-0 whitespace-nowrap rounded-full bg-brand-primary/20 px-2 py-1 text-sm font-bold text-brand-primary">
@@ -33,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, onAdd, index }) => {
             </span>
           </div>
 
-          <p className="mb-4 flex-1 font-body text-sm text-gray-400 line-clamp-3">
+          <p className="mb-4 flex-1 font-body text-sm text-gray-600 line-clamp-3">
             {item.descripcion}
           </p>
 

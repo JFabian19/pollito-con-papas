@@ -17,32 +17,32 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({ categories, onSelectCategor
                     <button
                         key={category.categoria}
                         onClick={() => onSelectCategory(category.categoria)}
-                        className="group relative flex aspect-square flex-col overflow-hidden rounded-2xl bg-brand-card shadow-lg transition-transform active:scale-95 border border-white/5"
+                        className="group relative flex aspect-square flex-col overflow-hidden rounded-2xl bg-brand-card shadow-lg transition-transform active:scale-95 border border-gray-200"
                     >
                         {/* Background Placeholder Gradient - In a real app, this would be category.image */}
                         <div className={`absolute inset-0 bg-gradient-to-br ${getGradient(index)} opacity-80 transition-opacity group-hover:opacity-100`}></div>
 
-                        {/* Dark Overlay */}
-                        <div className="absolute inset-0 bg-black/40 transition-colors group-hover:bg-black/30"></div>
+                        {/* Light Overlay or none */}
+                        <div className="absolute inset-0 bg-white/0 transition-colors group-hover:bg-white/10"></div>
 
                         {/* Content */}
                         <div className="relative z-10 flex h-full flex-col justify-between p-4">
-                            <div className="self-end rounded-full bg-white/20 p-1.5 backdrop-blur-sm">
-                                <ChevronRight size={16} className="text-white" />
+                            <div className="self-end rounded-full bg-white/60 p-1.5 backdrop-blur-sm">
+                                <ChevronRight size={16} className="text-gray-900" />
                             </div>
 
                             <div>
-                                <h3 className="font-heading text-lg font-black italic leading-tight text-white drop-shadow-md">
+                                <h3 className="font-heading text-lg font-black italic leading-tight text-gray-900 drop-shadow-sm">
                                     {category.categoria}
                                 </h3>
-                                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-white/80">
+                                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-gray-700">
                                     {category.items.length} productos
                                 </p>
                             </div>
                         </div>
 
                         {/* Decorative pattern */}
-                        <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-white/10 blur-2xl transition-transform group-hover:scale-150"></div>
+                        <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-brand-primary/10 blur-2xl transition-transform group-hover:scale-150"></div>
                     </button>
                 ))}
             </div>

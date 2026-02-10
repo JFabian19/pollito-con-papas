@@ -25,22 +25,22 @@ const CartSheet: React.FC<CartSheetProps> = ({ isOpen, onClose, items, onUpdateQ
       ></div>
 
       {/* Sheet Content */}
-      <div className="relative flex max-h-[85vh] w-full flex-col overflow-hidden rounded-t-[2rem] bg-zinc-900 shadow-2xl ring-1 ring-white/10 transition-transform duration-300 sm:max-w-md sm:rounded-[2rem]">
+      <div className="relative flex max-h-[85vh] w-full flex-col overflow-hidden rounded-t-[2rem] bg-white shadow-2xl ring-1 ring-gray-200 transition-transform duration-300 sm:max-w-md sm:rounded-[2rem]">
 
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-white/5 bg-zinc-900/50 p-6 backdrop-blur-md">
+        <div className="flex items-center justify-between border-b border-gray-200 bg-white/95 p-6 backdrop-blur-md">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary text-white shadow-lg shadow-brand-primary/20">
               <ShoppingBag size={20} />
             </div>
             <div>
-              <h2 className="font-heading text-xl font-extrabold italic text-white tracking-wide">TU PEDIDO</h2>
-              <p className="text-xs text-gray-400 font-medium">Pollito con Papas</p>
+              <h2 className="font-heading text-xl font-extrabold italic text-gray-900 tracking-wide">TU PEDIDO</h2>
+              <p className="text-xs text-gray-500 font-medium">Pollito con Papas</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white transition-colors"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-900 transition-colors"
           >
             <X size={18} />
           </button>
@@ -50,32 +50,32 @@ const CartSheet: React.FC<CartSheetProps> = ({ isOpen, onClose, items, onUpdateQ
         <div className="flex-1 overflow-y-auto p-6">
           {items.length === 0 ? (
             <div className="flex h-64 flex-col items-center justify-center text-center text-gray-500">
-              <div className="mb-4 rounded-full bg-white/5 p-6">
-                <ShoppingBag size={32} className="opacity-50" />
+              <div className="mb-4 rounded-full bg-gray-100 p-6">
+                <ShoppingBag size={32} className="opacity-50 text-gray-400" />
               </div>
-              <p className="font-heading text-lg font-bold italic text-white mb-2">Tu carrito está vacío</p>
-              <p className="font-body text-sm max-w-[200px]">¡Explora nuestra carta y agrega tus platos favoritos!</p>
+              <p className="font-heading text-lg font-bold italic text-gray-900 mb-2">Tu carrito está vacío</p>
+              <p className="font-body text-sm max-w-[200px] text-gray-600">¡Explora nuestra carta y agrega tus platos favoritos!</p>
             </div>
           ) : (
             <ul className="space-y-4 pb-24 sm:pb-4">
               {items.map((item) => (
-                <li key={item.nombre} className="flex items-start gap-4 rounded-2xl bg-black/20 p-4 border border-white/5">
+                <li key={item.nombre} className="flex items-start gap-4 rounded-2xl bg-gray-50 p-4 border border-gray-100">
                   <div className="flex flex-1 flex-col gap-1">
-                    <span className="font-heading text-sm font-bold italic text-white leading-tight">{item.nombre}</span>
+                    <span className="font-heading text-sm font-bold italic text-gray-900 leading-tight">{item.nombre}</span>
                     <span className="font-body text-xs font-bold text-brand-primary">S/ {(item.precio * item.quantity).toFixed(2)}</span>
                   </div>
 
-                  <div className="flex items-center gap-3 rounded-xl bg-black/40 p-1 border border-white/5">
+                  <div className="flex items-center gap-3 rounded-xl bg-gray-200 p-1 border border-gray-300">
                     <button
                       onClick={() => onUpdateQuantity(item.nombre, -1)}
-                      className="flex h-7 w-7 items-center justify-center rounded-lg text-white hover:bg-white/10 transition-colors"
+                      className="flex h-7 w-7 items-center justify-center rounded-lg text-gray-700 hover:bg-white/50 transition-colors"
                     >
                       {item.quantity === 1 ? <Trash2 size={14} className="text-brand-primary" /> : <Minus size={14} />}
                     </button>
-                    <span className="w-4 text-center font-heading text-sm font-bold text-white">{item.quantity}</span>
+                    <span className="w-4 text-center font-heading text-sm font-bold text-gray-900">{item.quantity}</span>
                     <button
                       onClick={() => onUpdateQuantity(item.nombre, 1)}
-                      className="flex h-7 w-7 items-center justify-center rounded-lg text-white hover:bg-white/10 transition-colors"
+                      className="flex h-7 w-7 items-center justify-center rounded-lg text-gray-700 hover:bg-white/50 transition-colors"
                     >
                       <Plus size={14} />
                     </button>
@@ -88,9 +88,9 @@ const CartSheet: React.FC<CartSheetProps> = ({ isOpen, onClose, items, onUpdateQ
 
         {/* Footer Actions */}
         {items.length > 0 && (
-          <div className="border-t border-white/5 bg-zinc-900/95 p-6 backdrop-blur-md pb-8 sm:pb-6">
-            <div className="mb-6 flex justify-between items-end text-white">
-              <span className="font-body text-sm text-gray-400 font-medium">Total ({itemCount} productos)</span>
+          <div className="border-t border-gray-200 bg-white/95 p-6 backdrop-blur-md pb-8 sm:pb-6">
+            <div className="mb-6 flex justify-between items-end text-gray-900">
+              <span className="font-body text-sm text-gray-500 font-medium">Total ({itemCount} productos)</span>
               <span className="font-heading text-2xl font-extrabold italic text-brand-primary drop-shadow-sm">S/ {total.toFixed(2)}</span>
             </div>
             <button

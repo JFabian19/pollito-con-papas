@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShoppingBag, ChevronUp, Flame, Facebook, Instagram, Phone, Clock, ChevronLeft, X } from 'lucide-react';
+import { ShoppingBag, ChevronUp, Flame, Facebook, Instagram, Phone, Clock, ChevronLeft, X, MapPin, Download } from 'lucide-react';
 import { MENU_DATA } from './constants';
 import { MenuItem, CartItem } from './types';
 import ProductCard from './components/ProductCard';
@@ -60,11 +60,11 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-brand-dark font-body text-white selection:bg-brand-primary selection:text-white relative flex flex-col">
+    <div className="min-h-screen bg-brand-dark font-body text-gray-900 selection:bg-brand-primary selection:text-white relative flex flex-col">
 
       <div className="relative z-10 w-full flex-1">
         {/* Small Sticky Header (For scrolling utility) */}
-        <header className="sticky top-0 z-50 flex h-[60px] items-center justify-between bg-black/95 backdrop-blur-sm px-4 shadow-lg shadow-black/50 border-b border-white/5">
+        <header className="sticky top-0 z-50 flex h-[60px] items-center justify-center bg-white/95 backdrop-blur-sm px-4 shadow-lg shadow-gray-200 border-b border-gray-200">
           <button
             onClick={() => {
               setSelectedCategory(null);
@@ -80,7 +80,7 @@ const App: React.FC = () => {
           </button>
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative flex h-10 w-10 items-center justify-center rounded-full bg-brand-card text-white hover:bg-brand-card/80 transition-colors border border-white/10"
+            className="absolute right-4 flex h-10 w-10 items-center justify-center rounded-full bg-brand-card text-brand-primary hover:bg-gray-100 transition-colors border border-gray-200 shadow-sm"
           >
             <ShoppingBag size={20} />
             {totalItems > 0 && (
@@ -111,7 +111,7 @@ const App: React.FC = () => {
 
             {/* Delivery Badge */}
             <div className="mb-6 inline-flex items-center gap-1 rounded-full bg-black/60 px-4 py-1.5 backdrop-blur-md border border-white/20 shadow-lg">
-              <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
+              <MapPin size={14} className="text-brand-primary" />
               <span className="text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-md">
                 Te damos lo que te gusta, por delivery.
               </span>
@@ -121,7 +121,7 @@ const App: React.FC = () => {
             <div className="mb-6 flex items-center gap-2 rounded-full bg-black/40 px-4 py-1.5 backdrop-blur-md border border-white/10 shadow-lg">
               <Clock size={14} className="text-brand-accentStart" />
               <span className="text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-md">
-                Todos los días: 1:00 PM - 10:30 PM
+                Todos los días
               </span>
             </div>
 
@@ -142,15 +142,15 @@ const App: React.FC = () => {
             </button>
 
             {/* Social Media Icons */}
-            <div className="flex items-center gap-8">
-              <a href="https://www.facebook.com/share/1CKREUYPLw/" target="_blank" rel="noopener noreferrer" className="text-white/90 hover:text-white transition-transform hover:scale-110 drop-shadow-lg">
-                <Facebook size={28} />
+            <div className="flex items-center gap-6">
+              <a href="https://www.facebook.com/share/1CKREUYPLw/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-12 w-12 rounded-full bg-white text-[#1877F2] hover:bg-gray-100 transition-transform hover:scale-110 shadow-lg">
+                <Facebook size={26} fill="currentColor" />
               </a>
-              <a href="https://www.tiktok.com/@ganasdepollitoconpapas?_r=1&_t=ZS-93lggJOOxLo" target="_blank" rel="noopener noreferrer" className="text-white/90 hover:text-white transition-transform hover:scale-110 drop-shadow-lg">
-                <TikTokIcon className="h-7 w-7" />
+              <a href="https://www.tiktok.com/@ganasdepollitoconpapas?_r=1&_t=ZS-93lggJOOxLo" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-12 w-12 rounded-full bg-white text-black hover:bg-gray-100 transition-transform hover:scale-110 shadow-lg">
+                <TikTokIcon className="h-6 w-6" />
               </a>
-              <a href="https://www.instagram.com/ganasdepollitoconpapas?igsh=MXFtZThpY3VnYTI2bw==" target="_blank" rel="noopener noreferrer" className="text-white/90 hover:text-white transition-transform hover:scale-110 drop-shadow-lg">
-                <Instagram size={28} />
+              <a href="https://www.instagram.com/ganasdepollitoconpapas?igsh=MXFtZThpY3VnYTI2bw==" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-12 w-12 rounded-full bg-white text-[#E4405F] hover:bg-gray-100 transition-transform hover:scale-110 shadow-lg">
+                <Instagram size={26} />
               </a>
             </div>
           </div>
@@ -159,43 +159,60 @@ const App: React.FC = () => {
         {/* View Switcher: Home (Categories) vs Detail (Product List) */}
         {!selectedCategory ? (
           <>
-            {/* UPDATED PROMO BANNER */}
-            <div className="relative mx-4 mt-8 overflow-hidden rounded-2xl bg-brand-card p-[1px] solar-gradient-border">
-              <div className="relative flex flex-col items-center justify-center overflow-hidden rounded-2xl bg-[#0F0F0F] px-6 py-6 text-center">
-                <div className="flex items-center gap-2 mb-2">
-                  <Flame className="h-5 w-5 text-brand-accentStart" />
-                  <span className="font-heading font-bold text-brand-accentStart text-sm tracking-wider uppercase">Oferta los miércoles</span>
-                  <Flame className="h-5 w-5 text-brand-accentStart" />
+            {/* UPDATED PROMO BANNER - Horizontal Layout on Mobile */}
+            <div className="relative mx-4 mt-8 overflow-hidden rounded-2xl bg-white shadow-xl border border-gray-200 group cursor-default">
+              <div className="flex flex-row h-48 sm:h-56 md:h-72">
+                {/* Image Section - Left - Reduced size, fit completely */}
+                <div className="w-1/3 md:w-2/5 relative bg-gray-50">
+                  <img
+                    src="/banner.png"
+                    alt="Miércoles de Pollito"
+                    className="absolute inset-0 w-full h-full object-contain p-2 md:p-4 transition-transform duration-700 group-hover:scale-105"
+                  />
                 </div>
 
-                <h2 className="font-heading text-xl font-extrabold italic text-white mb-3">
-                  #ᴛᴇɴᴅᴇɴᴄɪᴀ
-                </h2>
+                {/* Content Section - Right - More Text Space */}
+                <div className="w-2/3 md:w-3/5 p-3 sm:p-6 md:p-8 flex flex-col justify-center bg-white relative">
 
-                <div className="space-y-1 text-sm text-gray-300 font-body">
-                  <p>Pollo Entero <span className="text-brand-primary font-bold">s/50.00</span></p>
-                  <p>Medio Pollo <span className="text-brand-primary font-bold">s/25.00</span></p>
-                  <p className="text-xs text-gray-500 mt-1">+ complementos</p>
+                  <div className="flex items-center gap-2 mb-1 md:mb-4">
+                    <Flame className="h-3 w-3 md:h-6 md:w-6 text-brand-primary" />
+                    <span className="font-heading font-bold text-brand-primary text-[10px] md:text-base tracking-widest uppercase">¡Oferta Especial!</span>
+                  </div>
+
+                  <h2 className="font-heading text-lg sm:text-2xl md:text-4xl font-black italic text-gray-900 mb-2 md:mb-6 leading-none uppercase">
+                    MIÉRCOLES <br /> DE POLLITO
+                  </h2>
+
+                  <div className="space-y-1 md:space-y-4 w-full">
+                    <div className="flex justify-between items-center border-b border-gray-100 pb-1 md:pb-2 border-dashed">
+                      <span className="text-gray-600 font-bold text-xs md:text-lg">Pollo entero</span>
+                      <span className="text-brand-primary font-black text-sm md:text-3xl">s/50.00</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-gray-100 pb-1 md:pb-2 border-dashed">
+                      <span className="text-gray-600 font-bold text-xs md:text-lg">Medio pollo</span>
+                      <span className="text-brand-primary font-black text-sm md:text-2xl">s/25.00</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-gray-100 pb-1 md:pb-2 border-dashed">
+                      <span className="text-gray-600 font-bold text-xs md:text-lg">Cuarto de pollo</span>
+                      <span className="text-brand-primary font-black text-sm md:text-2xl">s/16.00</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-2 md:mt-6 flex items-center gap-2 text-gray-400">
+                    <div className="h-1 w-1 rounded-full bg-gray-300"></div>
+                    <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                      Incluye complementos
+                    </p>
+                  </div>
+
                 </div>
-
-                <a
-                  href="https://wa.me/51984853323"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 block rounded-lg bg-white/5 px-4 py-2 hover:bg-white/10 transition-colors"
-                >
-                  <p className="text-xs font-bold text-white">📲 Reservas 24hrs.</p>
-                </a>
-
-                {/* Background pattern */}
-                <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-primary/20 via-transparent to-transparent"></div>
               </div>
             </div>
 
             {/* Section Divider: Carta */}
             <div className="flex items-center justify-center gap-4 px-4 my-8">
               <div className="h-1 flex-1 rounded-full bg-[#ED1C24] shadow-[0_0_10px_#ED1C24]"></div>
-              <h2 className="font-heading text-2xl font-black italic tracking-widest text-white uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" style={{ textShadow: '2px 2px 0px #000' }}>
+              <h2 className="font-heading text-2xl font-black italic tracking-widest text-gray-900 uppercase drop-shadow-sm">
                 CARTA
               </h2>
               <div className="h-1 flex-1 rounded-full bg-[#ED1C24] shadow-[0_0_10px_#ED1C24]"></div>
@@ -216,7 +233,7 @@ const App: React.FC = () => {
             {/* Back Button */}
             <button
               onClick={() => setSelectedCategory(null)}
-              className="mb-6 flex items-center gap-2 text-sm font-bold text-white/50 hover:text-white transition-colors"
+              className="mb-6 flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-brand-primary transition-colors"
             >
               <ChevronLeft size={20} />
               <span>VOLVER A CATEGORÍAS</span>
@@ -227,7 +244,7 @@ const App: React.FC = () => {
                 key={category.categoria}
                 className="animate-fadeIn"
               >
-                <div className="mb-6 flex items-end gap-3 border-b border-white/10 pb-2">
+                <div className="mb-6 flex items-end gap-3 border-b border-gray-200 pb-2">
                   <h2 className="font-heading text-2xl font-extrabold italic tracking-wide text-brand-primary">
                     {category.categoria.toUpperCase()}
                   </h2>
@@ -235,7 +252,7 @@ const App: React.FC = () => {
                 </div>
 
                 {category.descripcion && (
-                  <p className="mb-6 -mt-2 text-sm text-gray-400 italic">
+                  <p className="mb-6 -mt-2 text-sm text-gray-600 italic">
                     {category.descripcion}
                   </p>
                 )}
@@ -258,74 +275,105 @@ const App: React.FC = () => {
       </div>
 
       {/* FOOTER */}
-      <footer className="relative z-20 mt-auto bg-black pt-12 pb-8 text-center text-gray-400 border-t border-white/10">
+      <footer className="relative z-20 mt-auto bg-gray-50 pt-12 pb-8 text-center text-gray-600 border-t border-gray-200">
         <div className="container mx-auto px-4 max-w-lg">
 
           {/* Payment Methods Section */}
-          <div className="mb-10 rounded-2xl bg-white/5 p-6 border border-white/10">
-            <h3 className="font-heading text-lg font-bold italic mb-4 text-white">MEDIOS DE PAGO</h3>
+          <div className="mb-10 flex flex-col items-center">
 
-            <div className="flex justify-center gap-2 mb-6 flex-wrap">
-              <span className="bg-[#78288C] text-white px-3 py-1 rounded font-bold text-xs uppercase shadow-purple-500/20 shadow-lg">Yape</span>
-              <span className="bg-[#00ADC2] text-white px-3 py-1 rounded font-bold text-xs uppercase shadow-cyan-500/20 shadow-lg">Plin</span>
-              <span className="bg-green-600 text-white px-3 py-1 rounded font-bold text-xs uppercase shadow-green-500/20 shadow-lg">Efectivo</span>
-              <span className="bg-blue-600 text-white px-3 py-1 rounded font-bold text-xs uppercase shadow-blue-500/20 shadow-lg">Transferencia</span>
-            </div>
+            <h3 className="font-heading text-sm font-bold text-gray-800 mb-4 text-center uppercase tracking-wide">
+              METODOS DE PAGO
+            </h3>
 
-            {/* Yape Copy Section */}
-            <div className="flex flex-col items-center gap-2 w-full">
-              <span className="text-xs text-gray-400 uppercase tracking-widest font-bold">Yapear a nombre de Pollito con Papas</span>
-              <div className="flex items-center gap-2 bg-black/60 rounded-xl p-2 pl-4 border border-white/10 w-full relative">
-                <span className="font-mono text-lg font-bold tracking-widest flex-1 text-center text-white select-all">984 853 323</span>
-                <button
-                  onClick={() => {
-                    navigator.clipboard.writeText('984853323');
-                    alert('¡Número copiado!');
-                  }}
-                  className="bg-brand-primary h-10 w-10 flex items-center justify-center rounded-lg hover:bg-brand-primary/80 transition-colors text-white shadow-lg active:scale-95"
-                  title="Copiar número"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                </button>
+            {/* Payment Grid */}
+            <div className="grid grid-cols-2 gap-4 mb-6 w-full max-w-[280px]">
+              {/* Visa */}
+              <div className="flex items-center justify-center p-2 rounded-xl bg-white border border-gray-200 shadow-sm h-14 overflow-hidden relative">
+                <img src="/visa.png" alt="Visa" className="h-full w-full object-contain p-1" />
+              </div>
+
+              {/* Mastercard */}
+              <div className="flex items-center justify-center p-2 rounded-xl bg-white border border-gray-200 shadow-sm h-14 overflow-hidden relative">
+                <img src="/mastercard.svg" alt="Mastercard" className="h-full w-full object-contain p-1" />
+              </div>
+
+              {/* Yape */}
+              <div className="flex items-center justify-center p-2 rounded-xl bg-white border border-gray-200 shadow-sm h-14 overflow-hidden relative">
+                <img src="/yap.png" alt="Yape" className="h-full w-full object-contain p-1 scale-110" />
+              </div>
+
+              {/* Plin */}
+              <div className="flex items-center justify-center p-2 rounded-xl bg-white border border-gray-200 shadow-sm h-14 overflow-hidden relative">
+                <img src="/plin inter.png" alt="Plin" className="h-full w-full object-contain p-1 scale-110" />
               </div>
             </div>
+
+            {/* Business Info & QR */}
+            <h3 className="font-heading text-sm font-bold text-gray-800 mb-3 text-center uppercase tracking-wide">
+              Chicken Grill and Fries SAC
+            </h3>
+
+            <div className="relative p-2 bg-white rounded-xl border border-gray-200 shadow-md">
+              {/* QR Code - Click to Download */}
+              <a
+                href="/qr.jpg"
+                download="ChickenGrill_QR.jpg"
+                className="block w-32 h-32 bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer hover:opacity-90 transition-opacity"
+                title="Haz click para descargar el QR"
+              >
+                <img
+                  src="/qr.jpg"
+                  alt="QR Code"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerText = 'QR Code'
+                  }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Download className="text-white drop-shadow-md" size={24} />
+                </div>
+              </a>
+            </div>
+
           </div>
 
           <div className="flex flex-col items-center gap-6">
 
             {/* Social Handle */}
-            <a href="https://www.instagram.com/ganasdepollitoconpapas" target="_blank" rel="noopener noreferrer" className="font-heading font-bold text-white text-lg hover:text-brand-primary transition-colors">
-              @ganasdepollitoconpapas
-            </a>
+
 
             {/* Contact Info */}
-            <div className="space-y-1 text-sm text-gray-400">
+            <div className="space-y-1 text-sm text-gray-600">
               <p>Ica - Ica - Perú</p>
-              <a href="mailto:Ganasdepollitconpapas@gmail.com" className="block hover:text-white transition-colors">
-                Ganasdepollitconpapas@gmail.com
+              <a href="mailto:ganasdepollitconpapas@gmail.com" className="block hover:text-gray-900 transition-colors">
+                ganasdepollitconpapas@gmail.com
               </a>
             </div>
 
             {/* Phone Link */}
-            <a href="https://wa.me/51984853323" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">
+            <a href="https://wa.me/51984853323" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-gray-800 hover:text-brand-primary transition-colors">
               +51 984 853 323
             </a>
+            <p className="text-xs text-gray-500 font-medium -mt-4">
+              Lunes a Domingo de 1:00 pm a 10:30 pm
+            </p>
 
-            <div className="h-px w-20 bg-white/10 my-2"></div>
+            <div className="h-px w-20 bg-gray-300 my-2"></div>
 
             {/* Legal Links */}
             <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-500">
-              <a href="#" className="hover:text-white transition-colors">Política de privacidad</a>
-              <span className="text-white/10">•</span>
-              <a href="#" className="hover:text-white transition-colors">Términos & condiciones</a>
-              <span className="text-white/10">•</span>
-              <a href="#" className="hover:text-white transition-colors border border-gray-700 px-2 py-0.5 rounded flex items-center gap-2">
+              <a href="#" className="hover:text-gray-900 transition-colors">Política de privacidad</a>
+              <span className="text-gray-400">•</span>
+              <a href="#" className="hover:text-gray-900 transition-colors">Términos & condiciones</a>
+              <span className="text-gray-400">•</span>
+              <a href="#" className="hover:text-gray-900 transition-colors border border-gray-300 px-2 py-0.5 rounded flex items-center gap-2">
                 Libro de reclamaciones
               </a>
             </div>
 
             <p className="text-[10px] text-gray-600 mt-4">
-              © {new Date().getFullYear()} Pollito con Papas.
+              © 2026 Pollito con Papas. Todos los derechos reservados.
             </p>
           </div>
         </div>
@@ -342,7 +390,7 @@ const App: React.FC = () => {
               <span className="font-heading text-xs font-bold uppercase text-white/80">Total estimado</span>
               <span className="font-heading text-xl font-extrabold italic">S/ {totalPrice.toFixed(2)}</span>
             </div>
-            <div className="flex items-center gap-2 rounded-lg bg-black/20 px-4 py-2">
+            <div className="flex items-center gap-2 rounded-lg bg-black/10 px-4 py-2 text-gray-900">
               <span className="font-bold">Ver Carrito</span>
               <ChevronUp size={18} />
             </div>
@@ -350,21 +398,15 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* WhatsApp Floating Button - Bottom Right */}
+      {/* WhatsApp Floating Button - Middle Right */}
       {showFloatingWhatsApp && (
-        <div className={`fixed right-4 z-50 flex flex-col gap-2 ${totalItems > 0 && !isCartOpen ? 'bottom-28' : 'bottom-4'}`}>
+        <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2">
           <div className="relative">
             <button
               onClick={handleWhatsAppClick}
-              className="flex items-center justify-center h-14 w-14 rounded-full bg-[#25D366] shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 active:scale-95"
+              className="flex items-center justify-center h-14 w-14 rounded-full bg-[#25D366] shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white"
             >
               <WhatsAppIcon className="h-8 w-8 text-white fill-white" />
-            </button>
-            <button
-              onClick={() => setShowFloatingWhatsApp(false)}
-              className="absolute -top-2 -left-2 flex h-6 w-6 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-md hover:bg-black/70"
-            >
-              <X size={12} />
             </button>
           </div>
         </div>
