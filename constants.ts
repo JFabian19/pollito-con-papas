@@ -50,34 +50,8 @@ export const MENU_DATA: RestaurantData = {
       ]
     },
     {
-      "categoria": "Fusiones",
-      "descripcion": "Combinaciones clásicas y packs para compartir.",
-      "items": [
-        {
-          "nombre": "Mostrito",
-          "descripcion": "Un octavo de pollo a la brasa, porción de arroz chaufa y papas fritas.",
-          "precio": 13.00
-        },
-        {
-          "nombre": "Pack de Mostritos 🎉",
-          "descripcion": "Dos porciones independientes de mostritos (1/8 pollo + chaufa + papas).",
-          "precio": 24.00
-        },
-        {
-          "nombre": "Carnaval de Mostritos 🍻",
-          "descripcion": "Tres porciones independientes de mostritos.",
-          "precio": 33.00
-        },
-        {
-          "nombre": "Hiroshima Chaufa",
-          "descripcion": "Pollo a la brasa en trozos, frankfurter y arroz chaufa.",
-          "precio": 22.00
-        }
-      ]
-    },
-    {
-      "categoria": "Parrillas",
-      "descripcion": "Pollos a la brasa, carnes y anticuchos.",
+      "categoria": "Pollo a la brasa",
+      "descripcion": "El mejor sabor peruano en tu mesa.",
       "items": [
         {
           "nombre": "Pollo Entero",
@@ -100,31 +74,6 @@ export const MENU_DATA: RestaurantData = {
           "precio": 15.00
         },
         {
-          "nombre": "Pollo a la Plancha",
-          "descripcion": "Filete de pollo a la plancha, arroz blanco y papas.",
-          "precio": 20.00
-        },
-        {
-          "nombre": "Churrasco a la Plancha",
-          "descripcion": "Churrasco a la plancha, porción de papas y ensalada.",
-          "precio": 25.00
-        },
-        {
-          "nombre": "Anticuchos de Corazón",
-          "descripcion": "Porción de anticuchos, papas fritas, cremas y choclo.",
-          "precio": 18.00
-        },
-        {
-          "nombre": "Mollejitas a la Parrilla",
-          "descripcion": "Porción de mollejitas a la parrilla con papas.",
-          "precio": 15.00
-        },
-        {
-          "nombre": "Dúo Parrillero",
-          "descripcion": "Combinación de Mollejitas y Anticuchos de corazón.",
-          "precio": 25.00
-        },
-        {
           "nombre": "Pack Pollo Entero I",
           "descripcion": "Pollo entero, papas fritas, cremas y gaseosa de litro.",
           "precio": 70.00
@@ -138,6 +87,92 @@ export const MENU_DATA: RestaurantData = {
           "nombre": "Miércoles de Pollito (Medio)",
           "descripcion": "Oferta especial de miércoles: Medio pollo a la brasa.",
           "precio": 25.00
+        }
+      ]
+    },
+    {
+      "categoria": "Bebidas",
+      "items": [
+        {
+          "nombre": "Bebida Personal",
+          "descripcion": "Pepsi, 355 ml.",
+          "precio": 2.00
+        },
+        {
+          "nombre": "Agua Mineral (San Mateo)",
+          "descripcion": "San Mateo, 600ml.",
+          "precio": 3.00
+        },
+        {
+          "nombre": "Agua Mineral (Cielo)",
+          "descripcion": "Agua Cielo, 1 litro.",
+          "precio": 4.00
+        },
+        {
+          "nombre": "Inca Kola - Gordita",
+          "descripcion": "Inca Kola, 625ml.",
+          "precio": 4.00
+        },
+        {
+          "nombre": "Bebidas Jumbo",
+          "descripcion": "Inca Kola o Coca Cola, 600ml.",
+          "precio": 4.00
+        },
+        {
+          "nombre": "Bebida Familiar (1.5L)",
+          "descripcion": "7up o Pepsi, 1.5 litros.",
+          "precio": 6.00
+        },
+        {
+          "nombre": "Bebida Familiar (Pepsi 2L)",
+          "descripcion": "Pepsi de 2 litros, familiar.",
+          "precio": 8.00
+        }
+      ]
+    },
+    {
+      "categoria": "Chaufas",
+      "descripcion": "Arroces salteados al wok.",
+      "items": [
+        {
+          "nombre": "Chaufa de Pollo 🥡",
+          "descripcion": "Arroz chaufa con trozos de pollo clásico.",
+          "precio": 13.00
+        },
+        {
+          "nombre": "Arroz Chaufa de Hot Dog",
+          "descripcion": "Arroz chaufa con trozos de hot dog.",
+          "precio": 12.00
+        },
+        {
+          "nombre": "Arroz Chaufa de Chorizo",
+          "descripcion": "Arroz chaufa con trozos de chorizo ahumado.",
+          "precio": 15.00
+        },
+        {
+          "nombre": "Arroz Chaufa con Nuggets",
+          "descripcion": "Porción de arroz chaufa de pollo acompañado de nuggets.",
+          "precio": 20.00
+        },
+        {
+          "nombre": "Arroz Chaufa con Alitas",
+          "descripcion": "Porción de arroz chaufa de pollo acompañado de alitas.",
+          "precio": 20.00
+        },
+        {
+          "nombre": "Chaufa más Mollejitas",
+          "descripcion": "Porción de arroz chaufa de pollo con mollejitas a la parrilla.",
+          "precio": 20.00
+        },
+        {
+          "nombre": "Chaufa más Corazones",
+          "descripcion": "Porción de arroz chaufa con anticuchos de corazón.",
+          "precio": 20.00
+        },
+        {
+          "nombre": "Hiroshima Chaufa",
+          "descripcion": "Pollo a la brasa en trozos, frankfurter y arroz chaufa (antes en Fusiones).",
+          "precio": 22.00
         }
       ]
     },
@@ -198,6 +233,21 @@ export const MENU_DATA: RestaurantData = {
       ]
     },
     {
+      "categoria": "Porciones de papas fritas",
+      "items": [
+        {
+          "nombre": "Box Papas Fritas 🍟 XL",
+          "descripcion": "Porción de papas fritas familiar.",
+          "precio": 12.00
+        },
+        {
+          "nombre": "Box Papas Fritas 🍟 Medianas",
+          "descripcion": "Media porción de papas fritas.",
+          "precio": 8.00
+        }
+      ]
+    },
+    {
       "categoria": "Salchipapas",
       "descripcion": "Papas fritas crocantes con embutidos de calidad.",
       "items": [
@@ -239,90 +289,9 @@ export const MENU_DATA: RestaurantData = {
       ]
     },
     {
-      "categoria": "Chaufas",
-      "descripcion": "Arroces salteados al wok.",
-      "items": [
-        {
-          "nombre": "Chaufa de Pollo 🥡",
-          "descripcion": "Arroz chaufa con trozos de pollo clásico.",
-          "precio": 13.00
-        },
-        {
-          "nombre": "Arroz Chaufa de Hot Dog",
-          "descripcion": "Arroz chaufa con trozos de hot dog.",
-          "precio": 12.00
-        },
-        {
-          "nombre": "Arroz Chaufa de Chorizo",
-          "descripcion": "Arroz chaufa con trozos de chorizo ahumado.",
-          "precio": 15.00
-        },
-        {
-          "nombre": "Arroz Chaufa con Nuggets",
-          "descripcion": "Porción de arroz chaufa de pollo acompañado de nuggets.",
-          "precio": 20.00
-        },
-        {
-          "nombre": "Arroz Chaufa con Alitas",
-          "descripcion": "Porción de arroz chaufa de pollo acompañado de alitas.",
-          "precio": 20.00
-        },
-        {
-          "nombre": "Chaufa más Mollejitas",
-          "descripcion": "Porción de arroz chaufa de pollo con mollejitas a la parrilla.",
-          "precio": 20.00
-        },
-        {
-          "nombre": "Chaufa más Corazones",
-          "descripcion": "Porción de arroz chaufa con anticuchos de corazón.",
-          "precio": 20.00
-        }
-      ]
-    },
-    {
-      "categoria": "Porciones de papas",
-      "items": [
-        {
-          "nombre": "Box Papas Fritas 🍟 XL",
-          "descripcion": "Porción de papas fritas familiar.",
-          "precio": 12.00
-        },
-        {
-          "nombre": "Box Papas Fritas 🍟 Medianas",
-          "descripcion": "Media porción de papas fritas.",
-          "precio": 8.00
-        }
-      ]
-    },
-    {
-      "categoria": "Porción de ensalada",
-      "items": [
-        {
-          "nombre": "Pieza de Ensalada",
-          "descripcion": "Porción de ensalada fresca hecha en casa.",
-          "precio": 6.00
-        }
-      ]
-    },
-    {
       "categoria": "Extras",
       "descripcion": "Agregados y complementos.",
       "items": [
-        {
-          "nombre": "Nuggets de Pollo - Crispy",
-          "descripcion": "10 piezas de nuggets en versión crocante.",
-          "precio": 15.00
-        },
-        {
-          "nombre": "Pack Nuggets de Pollo",
-          "descripcion": "Dos porciones independientes de nuggets (20 unidades en total).",
-          "precio": 25.00
-        },
-        {
-          "nombre": "Pack de Mollejitas",
-          "descripcion": "Dos porciones independientes de mollejitas.",
-          "precio": 25.00
-        },
         {
           "nombre": "Extra I",
           "descripcion": "Agregado a elección: Huevo, Hot dog o Carne.",
@@ -330,7 +299,7 @@ export const MENU_DATA: RestaurantData = {
         },
         {
           "nombre": "Extra II",
-          "descripcion": "Agregado a elección: Frankfurter, Chorizo o Nuggets (unid).",
+          "descripcion": "Agregado a elección: Frankfurter, Chorizo.",
           "precio": 3.00
         },
         {
@@ -361,44 +330,107 @@ export const MENU_DATA: RestaurantData = {
       ]
     },
     {
-      "categoria": "Bebidas",
+      "categoria": "Parrillas",
+      "descripcion": "Carnes y anticuchos a la parrilla.",
       "items": [
         {
-          "nombre": "Bebida Personal",
-          "descripcion": "Pepsi, 355 ml.",
-          "precio": 2.00
+          "nombre": "Pollo a la Plancha",
+          "descripcion": "Filete de pollo a la plancha, arroz blanco y papas.",
+          "precio": 20.00
         },
         {
-          "nombre": "Agua Mineral (San Mateo)",
-          "descripcion": "San Mateo, 600ml.",
-          "precio": 3.00
+          "nombre": "Churrasco a la Plancha",
+          "descripcion": "Churrasco a la plancha, porción de papas y ensalada.",
+          "precio": 25.00
         },
         {
-          "nombre": "Agua Mineral (Cielo)",
-          "descripcion": "Agua Cielo, 1 litro.",
-          "precio": 4.00
+          "nombre": "Anticuchos de Corazón",
+          "descripcion": "Porción de anticuchos, papas fritas, cremas y choclo.",
+          "precio": 18.00
         },
         {
-          "nombre": "Inca Kola - Gordita",
-          "descripcion": "Inca Kola, 625ml.",
-          "precio": 4.00
+          "nombre": "Mollejitas a la Parrilla",
+          "descripcion": "Porción de mollejitas a la parrilla con papas.",
+          "precio": 15.00
         },
         {
-          "nombre": "Bebidas Jumbo",
-          "descripcion": "Inca Kola o Coca Cola, 600ml.",
-          "precio": 4.00
+          "nombre": "Dúo Parrillero",
+          "descripcion": "Combinación de Mollejitas y Anticuchos de corazón.",
+          "precio": 25.00
         },
         {
-          "nombre": "Bebida Familiar (1.5L)",
-          "descripcion": "7up o Pepsi, 1.5 litros.",
-          "precio": 6.00
-        },
-        {
-          "nombre": "Bebida Familiar (Pepsi 2L)",
-          "descripcion": "Pepsi de 2 litros, familiar.",
-          "precio": 8.00
+          "nombre": "Pack de Mollejitas",
+          "descripcion": "Dos porciones independientes de mollejitas (antes en Extras).",
+          "precio": 25.00
         }
       ]
+    },
+    {
+      "categoria": "Mostrito",
+      "descripcion": "Nuestros clásicos mostritos.",
+      "items": [
+        {
+          "nombre": "Mostrito Clásico",
+          "descripcion": "Un octavo de pollo a la brasa, porción de arroz chaufa y papas fritas.",
+          "precio": 13.00
+        },
+        {
+          "nombre": "Pack de Mostritos 🎉",
+          "descripcion": "Dos porciones independientes de mostritos (1/8 pollo + chaufa + papas).",
+          "precio": 24.00
+        },
+        {
+          "nombre": "Carnaval de Mostritos 🍻",
+          "descripcion": "Tres porciones independientes de mostritos.",
+          "precio": 33.00
+        }
+      ]
+    },
+    {
+      "categoria": "Nuggets",
+      "items": [
+        {
+          "nombre": "Nuggets de Pollo - Crispy",
+          "descripcion": "10 piezas de nuggets en versión crocante.",
+          "precio": 15.00
+        },
+        {
+          "nombre": "Pack Nuggets de Pollo",
+          "descripcion": "Dos porciones independientes de nuggets (20 unidades en total).",
+          "precio": 25.00
+        },
+        {
+          "nombre": "Nugget Unidad",
+          "descripcion": "Unidad de nugget.",
+          "precio": 3.00
+        }
+      ]
+    },
+    {
+      "categoria": "Infusiones",
+      "items": []
+    },
+    {
+      "categoria": "Día de la primavera",
+      "items": []
+    },
+    {
+      "categoria": "Instituciones educativas",
+      "items": []
+    },
+    {
+      "categoria": "Porción de ensalada",
+      "items": [
+        {
+          "nombre": "Pieza de Ensalada",
+          "descripcion": "Porción de ensalada fresca hecha en casa.",
+          "precio": 6.00
+        }
+      ]
+    },
+    {
+      "categoria": "Catering",
+      "items": []
     }
   ]
 };
