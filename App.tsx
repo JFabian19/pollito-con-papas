@@ -208,8 +208,8 @@ const App: React.FC = () => {
                     </span>
                   </div>
 
-                  <h2 className="font-heading text-sm sm:text-2xl md:text-4xl font-black italic text-gray-900 mb-2 md:mb-6 leading-none uppercase whitespace-nowrap">
-                    {promoData?.titulo || "MIÉRCOLES DE POLLITO"}
+                  <h2 className="font-heading text-sm sm:text-2xl md:text-4xl font-black italic text-gray-900 mb-2 md:mb-6 leading-none uppercase whitespace-pre-line">
+                    {promoData?.titulo || "MIÉRCOLES DE\nPOLLITO"}
                   </h2>
 
                   <div className="space-y-1 md:space-y-4 w-full">

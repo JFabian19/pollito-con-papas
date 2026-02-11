@@ -1,0 +1,69 @@
+categoria_id,nombre,descripcion,precio,imagen_url,disponible
+"cuartos","Cuarto Choricero","Un cuarto de pollo a la brasa, chorizo, papas fritas y ensalada.","22.00","",TRUE
+"cuartos","Salchitodo","Un cuarto de pollo a la brasa, frankfurter, papas fritas y ensalada.","22.00","",TRUE
+"cuartos","Mostrazo","Un cuarto de pollo a la brasa, porción de arroz chaufa y papas fritas.","22.00","",TRUE
+"cuartos","Cuarto Anticuchero","Un cuarto de pollo a la brasa, porción de anticuchos, papas y ensalada.","22.00","",TRUE
+"cuartos","Cuarto Mollejero","Un cuarto de pollo a la brasa, papas fritas, mollejitas y ensalada.","22.00","",TRUE
+"cuartos","Cuarto a lo Pobre","Un cuarto de pollo a la brasa, papas fritas, huevo frito y plátano frito.","22.00","",TRUE
+"cuartos","Pack Personal","1/4 de pollo a la brasa, papas fritas y gaseosa.","20.00","",TRUE
+"cuartos","Promo para Colegios","Un cuarto de pollo a la brasa, papas fritas (Precio especial estudiante).","10.00","",TRUE
+"pollos","Pollo Entero","Pollo a la brasa entero, papas fritas y ensalada.","60.00","",TRUE
+"pollos","Medio Pollo","Medio pollo a la brasa, papas fritas y ensalada.","35.00","",TRUE
+"pollos","Cuarto de Pollo (Clásico)","Un cuarto de pollo a la brasa, papas fritas y ensalada.","18.00","",TRUE
+"pollos","Octavo de Pollo","Un octavo de pollo a la brasa, papas fritas y ensalada.","15.00","",TRUE
+"pollos","Pack Pollo Entero I","Pollo entero, papas fritas, cremas y gaseosa de litro.","70.00","",TRUE
+"pollos","Miércoles de Pollito\n(Entero)","Oferta especial de miércoles: Pollo entero a la brasa.","50.00","",TRUE
+"pollos","Miércoles de Pollito\n(Medio)","Oferta especial de miércoles: Medio pollo a la brasa.","25.00","",TRUE
+"bebidas","Bebida Personal","Pepsi, 355 ml.","2.00","",TRUE
+"bebidas","Agua Mineral (San Mateo)","San Mateo, 600ml.","3.00","",TRUE
+"bebidas","Agua Mineral (Cielo)","Agua Cielo, 1 litro.","4.00","",TRUE
+"bebidas","Inca Kola - Gordita","Inca Kola, 625ml.","4.00","",TRUE
+"bebidas","Bebidas Jumbo","Inca Kola o Coca Cola, 600ml.","4.00","",TRUE
+"bebidas","Bebida Familiar (1.5L)","7up o Pepsi, 1.5 litros.","6.00","",TRUE
+"bebidas","Bebida Familiar (Pepsi 2L)","Pepsi de 2 litros, familiar.","8.00","",TRUE
+"chaufas","Chaufa de Pollo 🥡","Arroz chaufa con trozos de pollo clásico.","13.00","",TRUE
+"chaufas","Arroz Chaufa de Hot Dog","Arroz chaufa con trozos de hot dog.","12.00","",TRUE
+"chaufas","Arroz Chaufa de Chorizo","Arroz chaufa con trozos de chorizo ahumado.","15.00","",TRUE
+"chaufas","Arroz Chaufa con Nuggets","Porción de arroz chaufa de pollo acompañado de nuggets.","20.00","",TRUE
+"chaufas","Arroz Chaufa con Alitas","Porción de arroz chaufa de pollo acompañado de alitas.","20.00","",TRUE
+"chaufas","Chaufa más Mollejitas","Porción de arroz chaufa de pollo con mollejitas a la parrilla.","20.00","",TRUE
+"chaufas","Chaufa más Corazones","Porción de arroz chaufa con anticuchos de corazón.","20.00","",TRUE
+"chaufas","Hiroshima Chaufa","Pollo a la brasa en trozos, frankfurter y arroz chaufa (antes en Fusiones).","22.00","",TRUE
+"alitas","Alitas Clásicas","Alitas en versión a elección (4 piezas).","15.00","",TRUE
+"alitas","Alitas XL","Alitas en versión a elección (7 piezas).","20.00","",TRUE
+"alitas","Alitas XXL","Alitas en versión a elección (10 piezas).","25.00","",TRUE
+"alitas","Alitas Mega Big","Veinte (20) piezas de alitas en versión a elección.","40.00","",TRUE
+"alitas","Alitas Monster","4 piezas de alitas + papas fritas bien servidas.","22.00","",TRUE
+"alitas","Alitas más Frankfurter","Alitas (4 piezas) acompañadas de hot dog frankfurter.","20.00","",TRUE
+"alitas","Alitas más Chorizos","Alitas (4 piezas) acompañadas de chorizo parrillero.","20.00","",TRUE
+"alitas","Pack de Alitas","Dos porciones independientes de alitas clásicas.","25.00","",TRUE
+"alitas","Dúo Callejero","Alitas (4 piezas) + Mollejitas.","25.00","",TRUE
+"alitas","Trío Acriollado","Alitas (5 piezas) + Anticuchos + Rachi/Mollejas.","30.00","",TRUE
+"papas","Box Papas Fritas 🍟 XL","Porción de papas fritas familiar.","12.00","",TRUE
+"papas","Box Papas Fritas 🍟 Medianas","Media porción de papas fritas.","8.00","",TRUE
+"salchipapas","Salchipapa Clásica 🍟","Porción de papas fritas, hot dog y cremas.","10.00","",TRUE
+"salchipapas","Salchipapa Montada 🍟🍳","Porción de papas fritas, hot dog y huevo frito montado.","12.00","",TRUE
+"salchipapas","Salchipapa de Chorizo 🍟","Papas fritas, rodajas de chorizo y cremas.","15.00","",TRUE
+"salchipapas","Salchipapa de Frankfurter","Papas fritas, salchicha frankfurter, cremas.","15.00","",TRUE
+"salchipapas","Salchipapa a lo Pobre","Papas fritas, hot dog, huevo frito y plátano.","15.00","",TRUE
+"salchipapas","Salchimix","Bandeja de papas fritas, slices de chorizo, hot dog y pollo.","15.00","",TRUE
+"salchipapas","Pack Salchimix","Dos bandejas independientes de Salchimix.","25.00","",TRUE
+"extras","Extra I","Agregado a elección: Huevo, Hot dog o Carne.","2.00","",TRUE
+"extras","Extra II","Agregado a elección: Frankfurter, Chorizo.","3.00","",TRUE
+"extras","Extra III (Alita)","Alita en pieza por unidad, versión a elección.","3.00","",TRUE
+"extras","Porción de Arroz","Porción de arroz blanco personal.","5.00","",TRUE
+"extras","Carbón Parrillero","10kg de carbón vegetal.","40.00","",TRUE
+"postres","Torta de Chocolate","Slice de torta de chocolate bañada en fudge.","7.00","",TRUE
+"parrillas","Pollo a la Plancha","Filete de pollo a la plancha, arroz blanco y papas.","20.00","",TRUE
+"parrillas","Churrasco a la Plancha","Churrasco a la plancha, porción de papas y ensalada.","25.00","",TRUE
+"parrillas","Anticuchos de Corazón","Porción de anticuchos, papas fritas, cremas y choclo.","18.00","",TRUE
+"parrillas","Mollejitas a la Parrilla","Porción de mollejitas a la parrilla con papas.","15.00","",TRUE
+"parrillas","Dúo Parrillero","Combinación de Mollejitas y Anticuchos de corazón.","25.00","",TRUE
+"parrillas","Pack de Mollejitas","Dos porciones independientes de mollejitas (antes en Extras).","25.00","",TRUE
+"mostrito","Mostrito Clásico","Un octavo de pollo a la brasa, porción de arroz chaufa y papas fritas.","13.00","",TRUE
+"mostrito","Pack de Mostritos 🎉","Dos porciones independientes de mostritos (1/8 pollo + chaufa + papas).","24.00","",TRUE
+"mostrito","Carnaval de Mostritos 🍻","Tres porciones independientes de mostritos.","33.00","",TRUE
+"nuggets","Nuggets de Pollo - Crispy","10 piezas de nuggets en versión crocante.","15.00","",TRUE
+"nuggets","Pack Nuggets de Pollo","Dos porciones independientes de nuggets (20 unidades en total).","25.00","",TRUE
+"nuggets","Nugget Unidad","Unidad de nugget.","3.00","",TRUE
+"ensaladas","Pieza de Ensalada","Porción de ensalada fresca hecha en casa.","6.00","",TRUE

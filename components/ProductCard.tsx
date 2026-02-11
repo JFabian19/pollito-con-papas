@@ -36,7 +36,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, onAdd, index }) => {
         {/* Content */}
         <div className="flex flex-1 flex-col p-4">
           <div className="mb-2 flex items-start justify-between gap-2">
-            <h3 className="font-heading text-lg font-extrabold italic leading-tight text-gray-900">
+            <h3 className="font-heading text-lg font-extrabold italic leading-tight text-gray-900 whitespace-pre-line">
               {item.nombre}
             </h3>
             <span className="shrink-0 whitespace-nowrap rounded-full bg-brand-primary/20 px-2 py-1 text-sm font-bold text-brand-primary">

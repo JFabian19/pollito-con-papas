@@ -19,11 +19,28 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({ categories, onSelectCategor
                         onClick={() => onSelectCategory(category.categoria)}
                         className="group relative flex aspect-square flex-col overflow-hidden rounded-2xl bg-brand-card shadow-lg transition-transform active:scale-95 border border-gray-200"
                     >
-                        {/* Background Placeholder Gradient - In a real app, this would be category.image */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${getGradient(index)} opacity-80 transition-opacity group-hover:opacity-100`}></div>
+                        {/* Background Image if available */}
+                        {category.imagen ? (
+                            <img
+                                src={category.imagen}
+                                alt={category.categoria}
+                                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                onError={(e) => {
+                                    e.currentTarget.style.display = 'none';
+                                    // Show gradient if image fails
+                                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                                }}
+                            />
+                        ) : null}
+
+                        {/* Background Placeholder Gradient - Show if no image or image fails */}
+                        <div className={`absolute inset-0 bg-gradient-to-br ${getGradient(index)} opacity-80 transition-opacity group-hover:opacity-100 ${category.imagen ? 'hidden' : ''}`}></div>
 
                         {/* Light Overlay or none */}
-                        <div className="absolute inset-0 bg-white/0 transition-colors group-hover:bg-white/10"></div>
+                        <div className={`absolute inset-0 bg-white/0 transition-colors group-hover:bg-white/10 ${category.imagen ? 'hidden' : ''}`}></div>
+
+                        {/* Dark Gradient Overlay for text readability if image exists */}
+                        <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent ${category.imagen ? 'block' : 'hidden'}`}></div>
 
                         {/* Content */}
                         <div className="relative z-10 flex h-full flex-col justify-between p-4">
@@ -32,10 +49,10 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({ categories, onSelectCategor
                             </div>
 
                             <div>
-                                <h3 className="font-heading text-lg font-black italic leading-tight text-gray-900 drop-shadow-sm">
+                                <h3 className={`font-heading text-lg font-black italic leading-tight drop-shadow-sm ${category.imagen ? 'text-white drop-shadow-md' : 'text-gray-900'}`}>
                                     {category.categoria}
                                 </h3>
-                                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-gray-700">
+                                <p className={`mt-1 text-[10px] font-bold uppercase tracking-wider ${category.imagen ? 'text-gray-200' : 'text-gray-700'}`}>
                                     {category.items.length} productos
                                 </p>
                             </div>

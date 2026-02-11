@@ -1,0 +1,18 @@
+id,nombre,descripcion,imagen_url,orden
+"cuartos","Cuartos fusionados","Nuestra especialidad: Cuartos de pollo con combinaciones potentes.","",1
+"pollos","Pollo a la brasa","El mejor sabor peruano en tu mesa.","",2
+"bebidas","Bebidas","","",3
+"chaufas","Chaufas","Arroces salteados al wok.","",4
+"alitas","Alitas","Alitas en salsas BBQ, picante o oriental.","https://images.unsplash.com/photo-1567620832903-9fc6debc209f?q=80&w=800&auto=format&fit=crop",5
+"papas","Porciones de papas fritas","","",6
+"salchipapas","Salchipapas","Papas fritas crocantes con embutidos de calidad.","https://images.unsplash.com/photo-1582260477810-7469a5b4f62f?q=80&w=800&auto=format&fit=crop",7
+"extras","Extras","Agregados y complementos.","",8
+"postres","Postres","","",9
+"parrillas","Parrillas","Carnes y anticuchos a la parrilla.","https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop",10
+"mostrito","Mostrito","Nuestros clásicos mostritos.","",11
+"nuggets","Nuggets","","",12
+"infusiones","Infusiones","","",13
+"primavera","Día de la primavera","","",14
+"instituciones","Instituciones educativas","","",15
+"ensaladas","Porción de ensalada","","",16
+"catering","Catering","","",17

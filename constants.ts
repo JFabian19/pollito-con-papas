@@ -79,12 +79,12 @@ export const MENU_DATA: RestaurantData = {
           "precio": 70.00
         },
         {
-          "nombre": "Miércoles de Pollito (Entero)",
+          "nombre": "Miércoles de Pollito\n(Entero)",
           "descripcion": "Oferta especial de miércoles: Pollo entero a la brasa.",
           "precio": 50.00
         },
         {
-          "nombre": "Miércoles de Pollito (Medio)",
+          "nombre": "Miércoles de Pollito\n(Medio)",
           "descripcion": "Oferta especial de miércoles: Medio pollo a la brasa.",
           "precio": 25.00
         }
