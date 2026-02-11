@@ -6,6 +6,7 @@ export const MENU_DATA: RestaurantData = {
     {
       "categoria": "Cuartos fusionados",
       "descripcion": "Nuestra especialidad: Cuartos de pollo con combinaciones potentes.",
+      "imagen": "https://i.postimg.cc/YCxmNwtn/cuartos-fusionados.png",
       "items": [
         {
           "nombre": "Cuarto Choricero",
@@ -52,6 +53,7 @@ export const MENU_DATA: RestaurantData = {
     {
       "categoria": "Pollo a la brasa",
       "descripcion": "El mejor sabor peruano en tu mesa.",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV9i9LruMtzGITJnEUMHaRO650tspbUQ8Jdw&s",
       "items": [
         {
           "nombre": "Pollo Entero",
@@ -92,6 +94,7 @@ export const MENU_DATA: RestaurantData = {
     },
     {
       "categoria": "Bebidas",
+      "imagen": "https://i.postimg.cc/ZKMQT1kY/gaseosa.png",
       "items": [
         {
           "nombre": "Bebida Personal",
@@ -133,6 +136,7 @@ export const MENU_DATA: RestaurantData = {
     {
       "categoria": "Chaufas",
       "descripcion": "Arroces salteados al wok.",
+      "imagen": "https://i.postimg.cc/7ZQX17Hd/IMG-20260211-WA0025.jpg",
       "items": [
         {
           "nombre": "Chaufa de Pollo 🥡",
@@ -179,6 +183,7 @@ export const MENU_DATA: RestaurantData = {
     {
       "categoria": "Alitas",
       "descripcion": "Alitas en salsas BBQ, picante o oriental.",
+      "imagen": "https://wongfood.vtexassets.com/arquivos/ids/458567-800-auto?v=637625172663330000&width=800&height=auto&aspect=true",
       "items": [
         {
           "nombre": "Alitas Clásicas",
@@ -234,6 +239,7 @@ export const MENU_DATA: RestaurantData = {
     },
     {
       "categoria": "Porciones de papas fritas",
+      "imagen": "https://img.freepik.com/fotos-premium/porcion-papas-fritas-papas-fritas_135427-1884.jpg",
       "items": [
         {
           "nombre": "Box Papas Fritas 🍟 XL",
@@ -250,6 +256,7 @@ export const MENU_DATA: RestaurantData = {
     {
       "categoria": "Salchipapas",
       "descripcion": "Papas fritas crocantes con embutidos de calidad.",
+      "imagen": "https://imag.bonviveur.com/emplatado-final-de-las-salchipapas.jpg",
       "items": [
         {
           "nombre": "Salchipapa Clásica 🍟",
@@ -291,6 +298,7 @@ export const MENU_DATA: RestaurantData = {
     {
       "categoria": "Extras",
       "descripcion": "Agregados y complementos.",
+      "imagen": "https://www.elnacional.cat/uploads/s1/39/50/38/92/ou-ferrat-foto-pixabay.jpeg",
       "items": [
         {
           "nombre": "Extra I",
@@ -321,6 +329,7 @@ export const MENU_DATA: RestaurantData = {
     },
     {
       "categoria": "Postres",
+      "imagen": "https://i.postimg.cc/zByjPfBj/postres.png",
       "items": [
         {
           "nombre": "Torta de Chocolate",
@@ -332,6 +341,7 @@ export const MENU_DATA: RestaurantData = {
     {
       "categoria": "Parrillas",
       "descripcion": "Carnes y anticuchos a la parrilla.",
+      "imagen": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop",
       "items": [
         {
           "nombre": "Pollo a la Plancha",
