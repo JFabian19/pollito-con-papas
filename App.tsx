@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShoppingBag, ChevronUp, Flame, Facebook, Instagram, Phone, Clock, ChevronLeft, X, MapPin, Download } from 'lucide-react';
-import { MENU_DATA } from './constants';
-import { MenuItem, CartItem } from './types';
+import { ShoppingBag, ChevronUp, Flame, Facebook, Instagram, Phone, Clock, ChevronLeft, X, MapPin, Download, Share2 } from 'lucide-react';
+import { MENU_DATA as FALLBACK_MENU } from './constants';
+import { MenuItem, CartItem, MenuCategory } from './types';
+import { fetchSheetData, SheetPromo } from './services/googleSheets';
 import ProductCard from './components/ProductCard';
 import CategoryNav from './components/CategoryNav';
 import CartSheet from './components/CartSheet';
 import CategoryGrid from './components/CategoryGrid';
+import NavigationMenu from './components/NavigationMenu';
 
 // Custom Icons not in lucide-react
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -25,6 +27,22 @@ const App: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showFloatingWhatsApp, setShowFloatingWhatsApp] = useState(true);
+  const [menuData, setMenuData] = useState<MenuCategory[]>(FALLBACK_MENU.menu);
+  const [promoData, setPromoData] = useState<SheetPromo | null>(null);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const sheetId = import.meta.env.VITE_GOOGLE_SHEET_ID;
+      if (sheetId) {
+        const data = await fetchSheetData(sheetId);
+        if (data) {
+          setMenuData(data.menuData.menu);
+          setPromoData(data.promoData);
+        }
+      }
+    };
+    loadData();
+  }, []);
 
   // Add Item to Cart
   const addToCart = (item: MenuItem) => {
@@ -78,6 +96,21 @@ const App: React.FC = () => {
               className="h-10 w-auto object-contain rounded-md"
             />
           </button>
+          <NavigationMenu
+            onHome={() => {
+              setSelectedCategory(null);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onMenu={() => {
+              setSelectedCategory(null);
+              setTimeout(() => {
+                const element = document.getElementById('categories-section');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
+            }}
+          />
           <button
             onClick={() => setIsCartOpen(true)}
             className="absolute right-4 flex h-10 w-10 items-center justify-center rounded-full bg-brand-card text-brand-primary hover:bg-gray-100 transition-colors border border-gray-200 shadow-sm"
@@ -117,13 +150,7 @@ const App: React.FC = () => {
               </span>
             </div>
 
-            {/* Schedule Badge */}
-            <div className="mb-6 flex items-center gap-2 rounded-full bg-black/40 px-4 py-1.5 backdrop-blur-md border border-white/10 shadow-lg">
-              <Clock size={14} className="text-brand-accentStart" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-md">
-                Todos los días
-              </span>
-            </div>
+
 
             {/* Main Title Logo */}
             <div className="mb-6 flex flex-col items-center justify-center">
@@ -161,40 +188,42 @@ const App: React.FC = () => {
           <>
             {/* UPDATED PROMO BANNER - Horizontal Layout on Mobile */}
             <div className="relative mx-4 mt-8 overflow-hidden rounded-2xl bg-white shadow-xl border border-gray-200 group cursor-default">
-              <div className="flex flex-row h-48 sm:h-56 md:h-72">
-                {/* Image Section - Left - Reduced size, fit completely */}
-                <div className="w-1/3 md:w-2/5 relative bg-gray-50">
+              <div className="flex flex-row h-60 sm:h-72 md:h-80">
+                {/* Image Section - Left - Maximum size */}
+                <div className="w-1/2 relative bg-gray-50">
                   <img
-                    src="/banner.png"
-                    alt="Miércoles de Pollito"
-                    className="absolute inset-0 w-full h-full object-contain p-2 md:p-4 transition-transform duration-700 group-hover:scale-105"
+                    src={promoData?.imagen_url || "/banner.png"}
+                    alt={promoData?.titulo || "Promo"}
+                    className="absolute inset-0 w-full h-full object-contain p-0 md:p-4 transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
 
-                {/* Content Section - Right - More Text Space */}
-                <div className="w-2/3 md:w-3/5 p-3 sm:p-6 md:p-8 flex flex-col justify-center bg-white relative">
+                {/* Content Section - Right */}
+                <div className="w-1/2 p-2 sm:p-6 md:p-8 flex flex-col justify-center bg-white relative">
 
                   <div className="flex items-center gap-2 mb-1 md:mb-4">
                     <Flame className="h-3 w-3 md:h-6 md:w-6 text-brand-primary" />
-                    <span className="font-heading font-bold text-brand-primary text-[10px] md:text-base tracking-widest uppercase">¡Oferta Especial!</span>
+                    <span className="font-heading font-bold text-brand-primary text-[10px] md:text-base tracking-widest uppercase">
+                      {promoData?.subtitulo || "¡PROMO DE LA SEMANA!"}
+                    </span>
                   </div>
 
-                  <h2 className="font-heading text-lg sm:text-2xl md:text-4xl font-black italic text-gray-900 mb-2 md:mb-6 leading-none uppercase">
-                    MIÉRCOLES <br /> DE POLLITO
+                  <h2 className="font-heading text-sm sm:text-2xl md:text-4xl font-black italic text-gray-900 mb-2 md:mb-6 leading-none uppercase whitespace-nowrap">
+                    {promoData?.titulo || "MIÉRCOLES DE POLLITO"}
                   </h2>
 
                   <div className="space-y-1 md:space-y-4 w-full">
                     <div className="flex justify-between items-center border-b border-gray-100 pb-1 md:pb-2 border-dashed">
-                      <span className="text-gray-600 font-bold text-xs md:text-lg">Pollo entero</span>
-                      <span className="text-brand-primary font-black text-sm md:text-3xl">s/50.00</span>
+                      <span className="text-gray-600 font-bold text-xs md:text-lg">{promoData?.item1_nombre || "Pollo entero"}</span>
+                      <span className="text-brand-primary font-black text-sm md:text-3xl">s/{promoData?.item1_precio || "50.00"}</span>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-100 pb-1 md:pb-2 border-dashed">
-                      <span className="text-gray-600 font-bold text-xs md:text-lg">Medio pollo</span>
-                      <span className="text-brand-primary font-black text-sm md:text-2xl">s/25.00</span>
+                      <span className="text-gray-600 font-bold text-xs md:text-lg">{promoData?.item2_nombre || "Medio pollo"}</span>
+                      <span className="text-brand-primary font-black text-sm md:text-2xl">s/{promoData?.item2_precio || "25.00"}</span>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-100 pb-1 md:pb-2 border-dashed">
-                      <span className="text-gray-600 font-bold text-xs md:text-lg">Cuarto de pollo</span>
-                      <span className="text-brand-primary font-black text-sm md:text-2xl">s/16.00</span>
+                      <span className="text-gray-600 font-bold text-xs md:text-lg">{promoData?.item3_nombre || "Cuarto de pollo"}</span>
+                      <span className="text-brand-primary font-black text-sm md:text-2xl">s/{promoData?.item3_precio || "16.00"}</span>
                     </div>
                   </div>
 
@@ -210,7 +239,7 @@ const App: React.FC = () => {
             </div>
 
             {/* Section Divider: Carta */}
-            <div className="flex items-center justify-center gap-4 px-4 my-8">
+            <div id="categories-section" className="flex items-center justify-center gap-4 px-4 my-8 scroll-mt-24">
               <div className="h-1 flex-1 rounded-full bg-[#ED1C24] shadow-[0_0_10px_#ED1C24]"></div>
               <h2 className="font-heading text-2xl font-black italic tracking-widest text-gray-900 uppercase drop-shadow-sm">
                 CARTA
@@ -220,7 +249,7 @@ const App: React.FC = () => {
 
             {/* Category Grid */}
             <CategoryGrid
-              categories={MENU_DATA.menu}
+              categories={menuData}
               onSelectCategory={(cat) => {
                 setSelectedCategory(cat);
                 window.scrollTo({ top: 0, behavior: 'auto' });
@@ -239,7 +268,7 @@ const App: React.FC = () => {
               <span>VOLVER A CATEGORÍAS</span>
             </button>
 
-            {MENU_DATA.menu.filter(c => c.categoria === selectedCategory).map((category) => (
+            {menuData.filter(c => c.categoria === selectedCategory).map((category) => (
               <section
                 key={category.categoria}
                 className="animate-fadeIn"
@@ -400,14 +429,45 @@ const App: React.FC = () => {
 
       {/* WhatsApp Floating Button - Middle Right */}
       {showFloatingWhatsApp && (
-        <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2">
-          <div className="relative">
+        <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+          {/* WhatsApp Button */}
+          <div className="relative group">
             <button
               onClick={handleWhatsAppClick}
               className="flex items-center justify-center h-14 w-14 rounded-full bg-[#25D366] shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white"
+              aria-label="WhatsApp"
             >
               <WhatsAppIcon className="h-8 w-8 text-white fill-white" />
             </button>
+            <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 bg-black/70 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+              Contáctanos
+            </span>
+          </div>
+
+          {/* Share Button */}
+          <div className="relative group">
+            <button
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({
+                    title: 'Pollito con Papas',
+                    text: '¡Mira esta deliciosa carta de Pollito con Papas!',
+                    url: window.location.href,
+                  }).catch(console.error);
+                } else {
+                  // Fallback for desktop/unsupported
+                  navigator.clipboard.writeText(window.location.href);
+                  alert('¡Enlace copiado al portapapeles!');
+                }
+              }}
+              className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white text-white"
+              aria-label="Compartir"
+            >
+              <Share2 size={24} />
+            </button>
+            <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 bg-black/70 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+              Compartir
+            </span>
           </div>
         </div>
       )}

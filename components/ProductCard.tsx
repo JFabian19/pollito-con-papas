@@ -16,10 +16,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, onAdd, index }) => {
       <div className="flex h-full flex-col overflow-hidden rounded-xl bg-brand-card">
         {/* Image Container */}
         <div className="relative h-40 w-full overflow-hidden">
-          <div className="flex h-full w-full items-center justify-center bg-gray-100">
-            <span className="font-heading text-2xl font-bold italic text-gray-300">Imagen acá</span>
+          {item.imagen ? (
+            <img
+              src={item.imagen}
+              alt={item.nombre}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+          ) : null}
+          <div className={`flex h-full w-full items-center justify-center bg-gray-100 ${item.imagen ? 'hidden' : ''}`}>
+            <span className="font-heading text-2xl font-bold italic text-gray-300">Pollito</span>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-50/50 to-transparent opacity-60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
         </div>
 
         {/* Content */}
