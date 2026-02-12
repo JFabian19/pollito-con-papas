@@ -459,7 +459,7 @@ const App: React.FC = () => {
                 if (navigator.share) {
                   navigator.share({
                     title: '¡Bienvenidos a Pollito con Papas!',
-                    text: '¡Bienvenidos a Pollito con Papas!\nCarta Digital:',
+                    text: '¡Bienvenidos a Pollito con Papas!',
                     url: window.location.href,
                   }).catch(console.error);
                 } else {
