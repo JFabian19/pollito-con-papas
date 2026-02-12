@@ -395,9 +395,17 @@ const App: React.FC = () => {
               <a href="#" className="hover:text-gray-900 transition-colors">Política de privacidad</a>
               <span className="text-gray-400">•</span>
               <a href="#" className="hover:text-gray-900 transition-colors">Términos & condiciones</a>
-              <span className="text-gray-400">•</span>
-              <a href="#" className="hover:text-gray-900 transition-colors border border-gray-300 px-2 py-0.5 rounded flex items-center gap-2">
-                Libro de reclamaciones
+            </div>
+
+            {/* Libro de Reclamaciones */}
+            <div className="flex justify-center -mt-2">
+              <a href="#" className="flex flex-col items-center gap-2 hover:opacity-80 transition-opacity">
+                <span className="text-[10px] text-gray-500 font-medium uppercase tracking-wide">Libro de reclamaciones</span>
+                <img
+                  src="/libro_de_reclamaciones.jpg"
+                  alt="Libro de Reclamaciones"
+                  className="h-20 w-auto object-contain border border-gray-200 rounded-lg shadow-sm"
+                />
               </a>
             </div>
 
@@ -450,8 +458,8 @@ const App: React.FC = () => {
               onClick={() => {
                 if (navigator.share) {
                   navigator.share({
-                    title: 'Pollito con Papas',
-                    text: '¡Mira esta deliciosa carta de Pollito con Papas!',
+                    title: '¡Bienvenidos a Pollito con Papas!',
+                    text: '¡Bienvenidos a Pollito con Papas!',
                     url: window.location.href,
                   }).catch(console.error);
                 } else {
