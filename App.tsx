@@ -458,8 +458,8 @@ const App: React.FC = () => {
               onClick={() => {
                 if (navigator.share) {
                   navigator.share({
-                    title: '¡Bienvenidos a Pollito con Papas!',
-                    text: '¡Bienvenidos a Pollito con Papas!\nCarta Digital',
+                    title: '¡Bienvenido a Pollito con Papas!',
+                    text: '¡Bienvenido a Pollito con Papas!\nCarta digital:',
                     url: window.location.href,
                   }).catch(console.error);
                 } else {
